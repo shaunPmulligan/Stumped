@@ -1,0 +1,68 @@
+@Stumped_HostAddress = http://localhost:5089
+
+POST {{Stumped_HostAddress}}/users/
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "idNumber": "12345",
+  "password": "password",
+  "email": "john.doe@example.com"
+}
+
+###
+POST {{Stumped_HostAddress}}/accounts/deposit
+Content-Type: application/json
+
+{
+  "accountId": 1,
+  "amount": 100.0
+}
+
+###
+POST {{Stumped_HostAddress}}/vehicles/
+Content-Type: application/json
+
+{
+  "vin": "1HGCM82633A123456",
+  "licenseNumber": "ABC123",
+  "plateNumber": "XYZ987",
+  "licenseExpiry": "2023-05-31T00:00:00",
+  "model": "Civic",
+  "color": "Blue",
+  "accountId": 1
+}
+
+###
+POST {{Stumped_HostAddress}}/quotes/
+Content-Type: application/json
+
+{
+  "date": "2023-05-01T00:00:00",
+  "validTo": "2023-06-01T00:00:00",
+  "quoteNumber": "Q12345",
+  "description": "License Renewal",
+  "amount": 200.0,
+  "status": "Pending",
+  "accountId": 1
+}
+
+###
+POST {{Stumped_HostAddress}}/accounts/renew-license
+Content-Type: application/json
+
+{
+  "accountId": 1,
+  "vehicleId": 1,
+  "quoteId": 1
+}
+
+###
+GET {{Stumped_HostAddress}}/accounts/vehicles
+Accept: application/json
+
+###
+
+
+
